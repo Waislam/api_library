@@ -25,7 +25,7 @@ class ApiListView(ListView):
 
 
 class AddApiView(CreateView):
-    """don't use View rather use CreateView to add obj to model ... do it affter creating model"""
+    """don't use View rather use CreateView to add obj to model ... do it affter creating model """
     model = Api
     template_name = 'home/dashboard/api/add-api.html'
     success_url = reverse_lazy('home_page:api_list')
