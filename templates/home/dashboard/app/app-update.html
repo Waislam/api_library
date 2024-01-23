@@ -1,0 +1,53 @@
+<!--add api html-->
+
+{% extends 'home/dashboard/index.html' %}
+
+{% block body %}
+<main>
+    <div class="container">
+<!--        {% if form.errors %}-->
+<!--        <div class="alert alert-danger" role="alert">-->
+<!--            <strong>Error(s):</strong>-->
+<!--            <ul>-->
+<!--                {% for field, errors in form.errors.items %}-->
+<!--                    {% for error in errors %}-->
+<!--                    <sapn>{{field|capfirst}}</sapn>-->
+<!--                    <li>{{ error }}</li>-->
+<!--                    {% endfor %}-->
+<!--                {% endfor %}-->
+<!--            </ul>-->
+<!--        </div>-->
+<!--        {% endif %}-->
+        <div class="row justify-content-center">
+            <div class="col-lg-7">
+                <div class="card shadow-lg border-0 rounded-lg mt-5">
+                    <div class="card-header"><h3 class="text-center font-weight-light my-4">Update App</h3></div>
+                    <div class="card-body">
+                        <form method="post" action="#">
+                            {% csrf_token %}
+                            <div class="row mb-3">
+
+                                <!--                                <div class="form-floating mb-3 p-3" style="line-height: 53px;">-->
+                                <div class="form-floating mb-3">
+                                    <input class="form-control" id="inputName" type="text"
+                                           placeholder="your category" name="app_name" value="{{object.app_name}}"/>
+                                    <label class="p-3" for="inputName">App Name</label>
+                                </div>
+                            </div>
+                            <div class="mt-4 mb-0">
+                                <div class="d-grid">
+                                    <button class="btn btn-primary btn-block" type="submit">
+                                        Update App
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock body %}
+
+<!--this is the html .. what is the problem here?-->

@@ -1,0 +1,143 @@
+<!-- templates/home/index.html -->
+
+{% extends 'base.html' %}
+
+{% block content %}
+<main id="main" class="site-main">
+
+    <aside class="block-area library-search-block-area">
+
+        <div class="wp-block-group alignfull u-p-large is-bg-circular-gradient-small is-layout-flow wp-block-group-is-layout-flow">
+            <div class="wp-block-group__inner-container">
+                <h2 class="wp-block-heading has-text-align-center">All Api Library</h2>
+
+
+                <p class="has-text-align-center">Browse your required api here</p>
+                <div class="searchwp-search-form searchwp-supplemental-search-form">
+                    <form role="search" method="get" id="searchform" class="searchform" action="">
+                        <div>
+                            <label class="screen-reader-text" for="swpquery">Search for:</label>
+                            <input type="text" placeholder="Search" value="" name="swpquery" id="swpquery"
+                                   data-swplive="true" data-swpengine="snippets">
+                            <input type="hidden" name="engine" value="snippets">
+                            <input type="submit" id="searchsubmit" value="Search">
+                        </div>
+                    </form>
+                </div>
+
+
+                <div class="wp-block-columns alignwide popular-searches is-layout-flex wp-container-16 wp-block-columns-is-layout-flex">
+                    <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:24%">
+                        <div style="height:15px" aria-hidden="true" class="wp-block-spacer"></div>
+                    </div>
+
+                    <div class="wp-block-column is-layout-flow wp-block-column-is-layout-flow" style="flex-basis:24%">
+                        <div style="height:15px" aria-hidden="true" class="wp-block-spacer"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </aside>
+
+
+    <!--    <div class="library-filters alignwide" id="home-filters">-->
+    <!--        <nav class="library-filters-categories library-filters-prority-nav">-->
+    <!--            <ul style="display: inline-block">-->
+    <!--                <li>-->
+    <!--                    <a class="filter-button selected" href="/?category=all">All</a>-->
+    <!--                </li>-->
+    <!--                <li>-->
+    <!--                    <a class="filter-button " href="https://library.wpcode.com?category=most-popular#home-filters">Most-->
+    <!--                        Popular</a>-->
+    <!--                </li>-->
+    <!--                <li>-->
+    <!--                    <a class="filter-button " href="https://library.wpcode.com?category=admin#home-filters">Admin</a>-->
+    <!--                </li>-->
+    <!--                <li>-->
+    <!--                    <a class="filter-button "-->
+    <!--                       href="https://library.wpcode.com?category=archive#home-filters">Archive</a>-->
+    <!--                </li>-->
+    <!--                <li>-->
+    <!--                    <a class="filter-button " href="https://library.wpcode.com?category=login#home-filters">Login</a>-->
+    <!--                </li>-->
+    <!--                <li>-->
+    <!--                    <a class="filter-button " href="https://library.wpcode.com?category=attachments#home-filters">Attachments</a>-->
+    <!--                </li>-->
+    <!--                <li>-->
+    <!--                    <a class="filter-button "-->
+    <!--                       href="https://library.wpcode.com?category=widgets#home-filters">Widgets</a>-->
+    <!--                </li>-->
+    <!--                <li>-->
+    <!--                    <a class="filter-button " href="https://library.wpcode.com?category=rss-feeds#home-filters">RSS-->
+    <!--                        Feeds</a>-->
+    <!--                </li>-->
+    <!--                <li>-->
+    <!--                    <a class="filter-button "-->
+    <!--                       href="https://library.wpcode.com?category=disable#home-filters">Disable</a>-->
+    <!--                </li>-->
+    <!--            </ul>-->
+    <!--        </nav>-->
+    <!--        <div class="library-filters-dropdown">-->
+    <!--        </div>-->
+    <!--    </div>-->
+    <div class="library-snippets-list alignwide">
+        <div class="library-snippet-box">
+            <h3>
+                <a title="Allow SVG Files Upload" href="#">api title</a>
+            </h3>
+            <div class="library-snippet-description">
+                <p>little description about the api</p>
+            </div>
+            <div class="library-snippet-buttons">
+                <a class="is-style-outline has-icon-eye library-snippet-button"
+                   href="#">View
+                </a>
+<!--                <a href="#"-->
+<!--                   class="is-style-green has-icon-use library-snippet-button">Edit-->
+<!--                </a>-->
+            </div>
+        </div>
+        <div class="library-snippet-box">
+            <h3>
+                <a title="Allow SVG Files Upload" href="#">api title</a>
+            </h3>
+            <div class="library-snippet-description">
+                <p>little description about the api</p>
+            </div>
+            <div class="library-snippet-buttons">
+                <a class="is-style-outline has-icon-eye library-snippet-button"
+                   href="#">View</a>
+            </div>
+        </div>
+        <div class="library-snippet-box">
+            <h3>
+                <a title="Allow SVG Files Upload" href="#">api title</a>
+            </h3>
+            <div class="library-snippet-description">
+                <p>little description about the api</p>
+            </div>
+            <div class="library-snippet-buttons">
+                <a class="is-style-outline has-icon-eye library-snippet-button"
+                   href="#">View</a>
+            </div>
+        </div>
+    </div>
+    <div class="library-snippets-pagination alignwide">
+        <span aria-current="page" class="page-numbers current">1</span>
+        <a class="page-numbers" href="#">2</a>
+        <a class="page-numbers" href="#">3</a>
+        <span class="page-numbers dots">…</span>
+        <a class="page-numbers" href="#">67</a>
+        <a class="next page-numbers" href="#">
+            <svg focusable="false" class=" v-image v-arrow-right" aria-hidden="true" width="20" height="16"
+                 viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path d="M1.66666 7.99984H18.3333" stroke="#42464D" stroke-width="1.7" stroke-linecap="round"
+                      stroke-linejoin="round"></path>
+                <path d="M11.6667 1.33325L18.3333 7.99992L11.6667 14.6666" stroke="#42464D" stroke-width="1.7"
+                      stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+        </a></div>
+</main>
+{% endblock %}
+
+

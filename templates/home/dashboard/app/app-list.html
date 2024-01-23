@@ -1,0 +1,57 @@
+<!--api list page-->
+{% extends 'home/dashboard/index.html' %}
+
+{% block body %}
+<div class="container-fluid px-4">
+    <h1 class="mt-4">All App</h1>
+    <ol class="breadcrumb mb-4">
+        <li class="breadcrumb-item"><a href="{% url 'home_page:dashboard' %}">Dashboard</a></li>
+        <li class="breadcrumb-item active">App List</li>
+
+    </ol>
+    <button class=" btn btn-primary float-end" style="margin-top: -55px;width: 130px;border-radius: 5px;">
+        <a class="text-white text-decoration-none" href="{% url 'home_page:add_app' %}">Add App</a>
+    </button>
+
+
+    <div class="card mb-4">
+        <div class="card-body">
+            <table id="datatablesSimple">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Created On</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tfoot>
+                <tr>
+                    <th>Name</th>
+                    <th>Created On</th>
+                    <th>Action</th>
+                </tr>
+
+                </tfoot>
+                <tbody>
+                {% for obj in object_list %}
+                <tr>
+                    <td>{{obj.app_name}}</td>
+                    <td>{{obj.created_at|date:"F d, Y"}}</td>
+                    <td class="justify-content-center">
+                        <button class="btn btn-primary float-end mx-1">
+                            <a class="text-white text-decoration-none" href="{% url 'home_page:app_update' pk=obj.id %}">Edit</a>
+                        </button>
+                        <button class="btn btn-success float-end  mx-1">View</button>
+                        <button class="btn btn-danger float-end  mx-1">
+                            <a class="text-white text-decoration-none" href="{% url 'home_page:del_app' pk=obj.id %}">Del</a>
+
+                        </button>
+                    </td>
+                </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock body %}
