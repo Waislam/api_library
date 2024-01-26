@@ -5,6 +5,19 @@
 {% block body %}
 <main>
     <div class="container">
+        {% if form.errors %}
+        <div class="alert alert-danger" role="alert">
+            <strong>Error(s):</strong>
+            <ul>
+                {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                <sapn>{{field|capfirst}}</sapn>
+                <li>{{ error }}</li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+        </div>
+        {% endif %}
         <div class="row justify-content-center">
             <div class="col-lg-7">
                 <div class="card shadow-lg border-0 rounded-lg mt-5">
@@ -13,7 +26,7 @@
                         <form method="post">
                             {% csrf_token %}
                             <div class="row mb-3">
-<!--                                <div class="form-floating mb-3 p-3" style="line-height: 53px;">-->
+                                <!--                                <div class="form-floating mb-3 p-3" style="line-height: 53px;">-->
                                 <div class="form-floating mb-3">
                                     <input class="form-control" id="inputName" type="text"
                                            placeholder="your App" name="app_name"/>

@@ -1,6 +1,6 @@
 from django import forms
 
-from home.models import Category, App
+from home.models import Category, App, Api
 
 
 class CategoryAddForm(forms.ModelForm):
@@ -14,4 +14,8 @@ class AppAddForm(forms.ModelForm):
         model = App
         fields = '__all__'
 
-# class
+
+class ApiAddForm(forms.ModelForm):
+    class Meta:
+        model = Api
+        fields = '__all__'
