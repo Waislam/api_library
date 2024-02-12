@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.urls import reverse_lazy
 from django.views import View
-from django.views.generic import CreateView
+from django.views.generic import CreateView, DeleteView, UpdateView
 from django.views.generic.list import ListView
 
 from home.forms import ApiAddForm
@@ -38,6 +38,11 @@ class ApiListView(ListView):
     model = Api
     template_name = 'home/dashboard/api/api-list.html'
 
+    def get_queryset(self):
+        queryset = Api.objects.filter_by_user(self.request.user.id)
+        return queryset
+
+
 
 class AddApiView(CreateView):
     """don't use View rather use CreateView to add obj to model ... do it affter creating model """
@@ -62,5 +67,33 @@ class AddApiView(CreateView):
         context['app_list'] = App.objects.all()
         context['category_list'] = Category.objects.all()
         context['type_list'] = Api.TYPE_CHOICE
-        print(context)
+        # print(context)
+        return context
+
+    def form_valid(self, form):
+        # Assign the current logged-in user to the created object
+        form.instance.created_by = self.request.user
+        return super().form_valid(form)
+
+class DeleteApiView(DeleteView):
+    model = Api
+    template_name = 'home/dashboard/api/delete-api.html'
+    success_url = reverse_lazy('home_page:api_list')
+
+
+class ApiEditView(UpdateView):
+    model = Api
+    form_class = ApiAddForm
+    template_name = 'home/dashboard/api/update-api.html'
+
+    success_url = reverse_lazy('home_page:api_list')
+    # def get_success_url(self):
+    #     return self.object.get_absolute_url()
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context['app_list'] = App.objects.all()
+        context['category_list'] = Category.objects.all()
+        context['type_list'] = Api.TYPE_CHOICE
+        # print(context)
         return context

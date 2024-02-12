@@ -2,7 +2,8 @@ from django.urls import path
 from .views.api import (HomePageView,
                         DashboardIndex,
                         ApiListView,
-                        AddApiView
+                        AddApiView,
+                        DeleteApiView, ApiEditView
                         )
 
 from .views.category import (
@@ -26,6 +27,8 @@ urlpatterns = [
     # api
     path('dashboard/api/api-list/', ApiListView.as_view(), name='api_list'),
     path('dashboard/api/add-api/', AddApiView.as_view(), name='add_api'),
+    path('dashboard/api/api/delete/<int:pk>/', DeleteApiView.as_view(), name='del_api'),
+    path('dashboard/api/api/update/<int:pk>/', ApiEditView.as_view(), name='api_update'),
     # category
     path('dashboard/api/category/', ApiCategoryListView.as_view(), name='category_list'),
     path('dashboard/api/add-category/', AddCategoryView.as_view(), name='add_category'),

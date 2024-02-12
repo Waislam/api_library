@@ -37,19 +37,24 @@
                 </tfoot>
                 <tbody>
                 {% for obj in object_list %}
-                    <tr>
-                        <td>{{obj.name}}</td>
-                        <td>{{obj.category}}</td>
-                        <td>{{obj.api_url}}</td>
-                        <td>{{obj.api_type}}</td>
-                        <td>{{obj.created_at|date:"F d, Y"}}</td>
-                        <td>{{obj.unique_code}}</td>
-                        <td class="justify-content-center">
-                            <button class="btn btn-primary float-end mx-1">Edit</button>
-                            <button class="btn btn-success float-end  mx-1">View</button>
-                            <button class="btn btn-danger float-end  mx-1">Del</button>
-                        </td>
-                    </tr>
+                <tr>
+                    <td>{{obj.name}}</td>
+                    <td>{{obj.category}}</td>
+                    <td>{{obj.api_url}}</td>
+                    <td>{{obj.api_type}}</td>
+                    <td>{{obj.created_at|date:"F d, Y"}}</td>
+                    <td>{{obj.unique_code}}</td>
+                    <td class="justify-content-center">
+                        <button class="btn btn-primary float-end mx-1">
+                            <a class="text-white text-decoration-none"
+                               href="{% url 'home_page:api_update' pk=obj.id %}">Edit</a>
+                        </button>
+                        <button class="btn btn-success float-end  mx-1">View</button>
+                        <button class="btn btn-danger float-end  mx-1">
+                            <a class="text-white text-decoration-none" href="{% url 'home_page:del_api' pk=obj.id %}">Del</a>
+                        </button>
+                    </td>
+                </tr>
                 {% endfor %}
                 </tbody>
             </table>

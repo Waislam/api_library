@@ -1,0 +1,5 @@
+{% extends 'home/dashboard/index.html' %}
+
+{% block body %}
+    {% include 'home/dashboard/delete-pop.html' with redirect_url='home_page:api_list' topic='Api' %}
+{% endblock %}

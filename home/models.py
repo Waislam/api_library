@@ -8,6 +8,7 @@ User = get_user_model()
 
 
 # Create your models here.
+
 class App(TimeStampMixin):
     app_name = models.CharField(max_length=255)
     # parent_app = models.
@@ -32,6 +33,13 @@ class Category(TimeStampMixin):
     def get_absolute_url(self):
         return reverse('home_page:category_list')
 
+# print('nide ====',dir(BaseManager))
+
+class ApiManager(models.Manager):
+    '''this class serving the manager purpose of filtering api as per loggedin user'''
+    def filter_by_user(self, user_id):
+        return self.get_queryset().filter(created_by=user_id)
+
 
 class Api(TimeStampMixin):
     TYPE_CHOICE = [
@@ -52,6 +60,12 @@ class Api(TimeStampMixin):
     description = models.TextField(max_length=1500)
     created_by = models.ForeignKey(User, on_delete=models.SET_NULL, related_name='home_api_related', blank=True,
                                    null=True)
+    objects = ApiManager()
 
     def __str__(self):
         return self.unique_code
+
+    def get_absolute_url(self):
+        return reverse('home_page:api_list')
+
+
